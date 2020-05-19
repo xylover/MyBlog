@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to MyBlog !</title>
+    <link rel="stylesheet"  href="{{ url_for('static' , filename='css/bootstrap.min.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static' , filename='css/style.css')}}" type="text/css">
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+    <link rel="icon" href="{{ url_for('static', filename='images/头.ico') }}">
+    <h2><img alt="Avatar" src="{{ url_for('static', filename='images/边图.png') }}">
+        {{ name }}'s Blog</h2>
+    <p>{{ blogs|length }} Blogs</p>
+    <ul>{% for blog in blogs %}
+        <li>Title : {{ blog.title }}</li>
+        <li>Text : {{ blog.text }}</li>
+        {% endfor %}
+    </ul>
+    <footer>
+        <small><a href="https://mp.csdn.net/console/article">CSDN</a></small>
+    </footer>
+</body>
+</html>
